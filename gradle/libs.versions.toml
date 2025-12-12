@@ -1,0 +1,19 @@
+[versions]
+mod-version = "0.1.0"
+
+# Target Minecraft 1.21.4
+minecraft = "1.21.4"
+yarn-mappings = "1.21.4+build.1"   # if this exact build doesn't exist, the Gradle error will say so; then change to the build it suggests
+fabric-loader = "0.16.10"          # 0.16.x or 0.17.x both work with 1.21.x
+loom = "1.4.1"                     # keep this, works with Gradle 9
+meteor = "1.21.4-SNAPSHOT"         # <<< IMPORTANT: this fixes your current error
+
+[libraries]
+minecraft     = { module = "com.mojang:minecraft",       version.ref = "minecraft" }
+yarn          = { module = "net.fabricmc:yarn",          version.ref = "yarn-mappings" }
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric-loader" }
+
+meteor-client = { module = "meteordevelopment:meteor-client", version.ref = "meteor" }
+
+[plugins]
+fabric-loom = { id = "fabric-loom", version.ref = "loom" }
