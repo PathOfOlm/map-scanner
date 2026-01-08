@@ -17,11 +17,10 @@ public final class ScanDb {
 
     private void initPragmas() throws SQLException {
         try (Statement st = conn.createStatement()) {
-            // Helps a lot with concurrent reads while Minecraft writes
             st.execute("PRAGMA journal_mode=WAL;");
             st.execute("PRAGMA synchronous=NORMAL;");
             st.execute("PRAGMA temp_store=MEMORY;");
-            st.execute("PRAGMA busy_timeout=5000;"); // wait up to 5s if locked
+            st.execute("PRAGMA busy_timeout=5000;");
         }
     }
 
@@ -41,9 +40,6 @@ public final class ScanDb {
                 );
             """);
             st.executeUpdate("CREATE INDEX IF NOT EXISTS idx_maps_last_seen ON maps(last_seen);");
-
-            // Optional: if you later want to store signs in same DB too,
-            // you can add a signs table here as well.
         }
     }
 
