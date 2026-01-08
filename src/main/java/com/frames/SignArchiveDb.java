@@ -104,7 +104,7 @@ public final class SignArchiveDb {
     }
 
     private static String buildSignKey(String dimension, String server, BlockPos pos, String front, String back) {
-        // Stable dedupe key: where + what
+        // dedupe key
         String dim = (dimension == null) ? "unknown" : dimension;
         String srv = (server == null) ? "unknown" : server;
         String f = (front == null) ? "" : front;
@@ -122,3 +122,4 @@ public final class SignArchiveDb {
         }
     }
 }
+
