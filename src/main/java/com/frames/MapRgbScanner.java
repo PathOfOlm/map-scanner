@@ -186,8 +186,6 @@ public class MapRgbScanner extends Module {
             int w = 128, h = 128;
             if (colors.length < w * h) continue;
 
-// stack is already a FilledMapItem above, so no need to re-check.
-// But we MUST NOT "return" from inside the loop; use continue.
 
             MapIdComponent idComp = stack.getComponents().get(DataComponentTypes.MAP_ID);
             if (idComp == null) continue;
@@ -293,3 +291,4 @@ public class MapRgbScanner extends Module {
             || url.startsWith("https://discordapp.com/api/webhooks/");
     }
 }
+
